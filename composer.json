@@ -14,7 +14,8 @@
         "symfony/framework-bundle": "6.2.*",
         "symfony/maker-bundle": "^1.48",
         "symfony/runtime": "6.2.*",
-        "symfony/yaml": "6.2.*"
+        "symfony/yaml": "6.2.*",
+        "thiagoalessio/tesseract_ocr": "^2.12"
     },
     "require-dev": {
         "symfony/stopwatch": "6.2.*",
