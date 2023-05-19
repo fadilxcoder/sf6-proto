@@ -1,0 +1,170 @@
+{
+	"info": {
+		"_postman_id": "78169173-5491-462f-a9f7-64f0ecc366cd",
+		"name": "SF6 GraphQL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18647677"
+	},
+	"item": [
+		{
+			"name": "All books",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query getAllBooks {\r\n    books {\r\n        id, \r\n        title,\r\n        genre\r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://sf6.inbuilt.app.local/api/",
+					"protocol": "http",
+					"host": [
+						"sf6",
+						"inbuilt",
+						"app",
+						"local"
+					],
+					"path": [
+						"api",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All authors",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query authors {\r\n    authors {\r\n        id,\r\n        name, \r\n        dateOfBirth,\r\n        books {\r\n            title,\r\n            averageRating\r\n        }\r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://sf6.inbuilt.app.local/api/",
+					"protocol": "http",
+					"host": [
+						"sf6",
+						"inbuilt",
+						"app",
+						"local"
+					],
+					"path": [
+						"api",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "One author (id)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query authors {\r\n    author(id: 7) {\r\n        name,\r\n        dateOfBirth,\r\n        bio,\r\n        books {\r\n            title\r\n        }\r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://sf6.inbuilt.app.local/api/",
+					"protocol": "http",
+					"host": [
+						"sf6",
+						"inbuilt",
+						"app",
+						"local"
+					],
+					"path": [
+						"api",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Books - specific author",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "{\r\n    findBooksByAuthor(name:\"Amani Strosin\") {\r\n        title,\r\n        genre\r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://sf6.inbuilt.app.local/api/",
+					"protocol": "http",
+					"host": [
+						"sf6",
+						"inbuilt",
+						"app",
+						"local"
+					],
+					"path": [
+						"api",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create an author",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation CreateAuthor {\r\n    createAuthor(\r\n        author: {\r\n            name: \"Sample Author\", \r\n            dateOfBirth: \"09/12/1990\" , \r\n            bio: \"Great Author\"\r\n        }\r\n    ){\r\n        name, \r\n        dateOfBirth\r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://sf6.inbuilt.app.local/api/",
+					"protocol": "http",
+					"host": [
+						"sf6",
+						"inbuilt",
+						"app",
+						"local"
+					],
+					"path": [
+						"api",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
