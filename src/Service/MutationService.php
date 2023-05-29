@@ -37,7 +37,12 @@ class MutationService
         }
 
         foreach ($newDetails as $property => $value) {
-            $book->$property = $value;
+
+            if ('author' === $property) {
+                $book->setAuthor($this->manager->getRepository(Author::class)->find((int) $value));
+            } else {
+                $book->$property = $value;
+            }
         }
 
         $this->manager->persist($book);

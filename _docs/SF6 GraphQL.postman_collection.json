@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "All books",
+			"name": "q. GetAllBooks",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -17,7 +17,7 @@
 				"body": {
 					"mode": "graphql",
 					"graphql": {
-						"query": "query getAllBooks {\r\n    books {\r\n        id, \r\n        title,\r\n        genre\r\n    }\r\n}",
+						"query": "query GetAllBooks {\r\n    books {\r\n        id, \r\n        title,\r\n        genre\r\n    }\r\n}",
 						"variables": ""
 					}
 				},
@@ -39,7 +39,7 @@
 			"response": []
 		},
 		{
-			"name": "All authors",
+			"name": "q. GetAllAuthors",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -49,7 +49,7 @@
 				"body": {
 					"mode": "graphql",
 					"graphql": {
-						"query": "query authors {\r\n    authors {\r\n        id,\r\n        name, \r\n        dateOfBirth,\r\n        books {\r\n            title,\r\n            averageRating\r\n        }\r\n    }\r\n}",
+						"query": "query GetAllAuthors {\r\n    authors {\r\n        id,\r\n        name, \r\n        dateOfBirth,\r\n        books {\r\n            title,\r\n            averageRating,\r\n            copiesSold\r\n        }\r\n    }\r\n}",
 						"variables": ""
 					}
 				},
@@ -71,7 +71,7 @@
 			"response": []
 		},
 		{
-			"name": "One author (id)",
+			"name": "q. GetSingleAuthorById",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -81,7 +81,7 @@
 				"body": {
 					"mode": "graphql",
 					"graphql": {
-						"query": "query authors {\r\n    author(id: 7) {\r\n        name,\r\n        dateOfBirth,\r\n        bio,\r\n        books {\r\n            title\r\n        }\r\n    }\r\n}",
+						"query": "query GetSingleAuthorById {\r\n    author(id: 7) {\r\n        name,\r\n        dateOfBirth,\r\n        bio,\r\n        books {\r\n            title,\r\n            synopsis\r\n        }\r\n    }\r\n}",
 						"variables": ""
 					}
 				},
@@ -103,7 +103,7 @@
 			"response": []
 		},
 		{
-			"name": "Books - specific author",
+			"name": "q. SearchBooksByAuthorName",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -113,7 +113,7 @@
 				"body": {
 					"mode": "graphql",
 					"graphql": {
-						"query": "{\r\n    findBooksByAuthor(name:\"Amani Strosin\") {\r\n        title,\r\n        genre\r\n    }\r\n}",
+						"query": "query SearchBooksByAuthorName {\r\n    findBooksByAuthor(name:\"Amani Strosin\") {\r\n        title,\r\n        genre\r\n    }\r\n}",
 						"variables": ""
 					}
 				},
@@ -135,17 +135,43 @@
 			"response": []
 		},
 		{
-			"name": "Create an author",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
+			"name": "m. CreateAuthor",
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "graphql",
 					"graphql": {
-						"query": "mutation CreateAuthor {\r\n    createAuthor(\r\n        author: {\r\n            name: \"Sample Author\", \r\n            dateOfBirth: \"09/12/1990\" , \r\n            bio: \"Great Author\"\r\n        }\r\n    ){\r\n        name, \r\n        dateOfBirth\r\n    }\r\n}",
+						"query": "mutation CreateAuthor {\r\n    createAuthor(\r\n        author: {\r\n            name: \"{{$randomFullName}}\", \r\n            dateOfBirth: \"15/08/2023\" , \r\n            bio: \"{{$randomJobTitle}}\"\r\n        }\r\n    ){\r\n        name, \r\n        dateOfBirth,\r\n        bio\r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://sf6.inbuilt.app.local/api/",
+					"protocol": "http",
+					"host": [
+						"sf6",
+						"inbuilt",
+						"app",
+						"local"
+					],
+					"path": [
+						"api",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "m. UpdateBook",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation UpdateBook {\r\n    updateBook(\r\n        id: 1,\r\n        book: {\r\n            title: \"{{$randomCompanyName}}\",\r\n            author: 16,\r\n            synopsis: \"{{$randomPhrase}}\",\r\n            releaseYear: \"2023\",\r\n            genre: \"Sci-fi\",\r\n            averageRating: 4\r\n            copiesSold: 1\r\n        }\r\n    ){\r\n        id, \r\n        title,\r\n        synopsis\r\n    }\r\n}",
 						"variables": ""
 					}
 				},

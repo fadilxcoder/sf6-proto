@@ -128,6 +128,7 @@ class Book
         $this->genre = $genre;
     }
 
+    # Dynamic Setter
     public function __set(string $property, mixed $value): void 
     {
         if (property_exists($this, $property)) {

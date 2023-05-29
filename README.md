@@ -93,3 +93,50 @@ $ php bin/console debug:router
  ------------------------------------------ -------- -------- ------ -----------------------------------
 
 ```
+
+## Test
+
+```bash
+$  newman run ./_docs/SF6\ GraphQL.postman_collection.json 
+newman
+
+SF6 GraphQL
+
+→ q. GetAllBooks
+  GET http://sf6.inbuilt.app.local/api/ [200 OK, 9.06kB, 9.8s]
+
+→ q. GetAllAuthors
+  GET http://sf6.inbuilt.app.local/api/ [200 OK, 11.76kB, 5.3s]
+
+→ q. GetSingleAuthorById
+  GET http://sf6.inbuilt.app.local/api/ [200 OK, 3.18kB, 5.2s]
+
+→ q. SearchBooksByAuthorName
+  GET http://sf6.inbuilt.app.local/api/ [200 OK, 741B, 5.2s]
+
+→ m. CreateAuthor
+  POST http://sf6.inbuilt.app.local/api/ [200 OK, 533B, 5.4s]
+
+→ m. UpdateBook
+  POST http://sf6.inbuilt.app.local/api/ [200 OK, 565B, 5.8s]
+
+┌─────────────────────────┬────────────────────┬───────────────────┐
+│                         │           executed │            failed │
+├─────────────────────────┼────────────────────┼───────────────────┤
+│              iterations │                  1 │                 0 │
+├─────────────────────────┼────────────────────┼───────────────────┤
+│                requests │                  6 │                 0 │
+├─────────────────────────┼────────────────────┼───────────────────┤
+│            test-scripts │                  0 │                 0 │
+├─────────────────────────┼────────────────────┼───────────────────┤
+│      prerequest-scripts │                  0 │                 0 │
+├─────────────────────────┼────────────────────┼───────────────────┤
+│              assertions │                  0 │                 0 │
+├─────────────────────────┴────────────────────┴───────────────────┤
+│ total run duration: 37.3s                                        │
+├──────────────────────────────────────────────────────────────────┤
+│ total data received: 23.43kB (approx)                            │
+├──────────────────────────────────────────────────────────────────┤
+│ average response time: 6.1s [min: 5.2s, max: 9.8s, s.d.: 1661ms] │
+└──────────────────────────────────────────────────────────────────┘
+```
