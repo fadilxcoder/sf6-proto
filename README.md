@@ -65,6 +65,12 @@ TRUNCATE table author;
 SET FOREIGN_KEY_CHECKS = 1;
 ```
 
+**CRUD**
+
+- URL : `http://sf6.inbuilt.app.local/appointment/`
+- `composer require form validator security-csrf annotations`
+- `php bin/console make:crud`
+
 ```bash
 $ php bin/console debug:router
  ------------------------------------------ -------- -------- ------ -----------------------------------
