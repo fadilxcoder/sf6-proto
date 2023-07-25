@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Login{% endblock %}
+
+{% block stylesheet %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+<main class="container" id="login">
+    <article class="grid">
+        <div>
+            <hgroup>
+                <h1>{{ app_owner }}</h1>
+                <h2>Dental Surgeon Appointments</h2>
+            </hgroup>
+            
+            <form method="POST" action="">
+                <input type="text" name="login" placeholder="Login" aria-label="Login" required>
+                <input type="password" name="password" placeholder="Password" aria-label="Password" required>
+                <button type="submit" name="submit_login" class="contrast">Login</button>
+            </form>
+        </div>
+        <div></div>
+    </article>
+</main>
+{% endblock %}
+
+{% block javascript %}
+    {{ parent() }}
+{% endblock %}

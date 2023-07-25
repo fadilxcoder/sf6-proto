@@ -1,0 +1,131 @@
+/* Grid */
+body{
+    margin: 0px;
+}
+
+body>main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem 0;
+}
+body>main#login {
+    min-height: calc(100vh - 7rem);
+}
+
+article.grid {
+    padding: 0;
+    overflow: hidden;
+}
+
+article.grid div {
+    padding: 1rem;
+}
+
+@media (min-width: 576px) {
+    body>main {
+        padding: 1.25rem 0;
+    }
+
+    article.grid div {
+        padding: 1.25rem;
+    }
+}
+
+@media (min-width: 768px) {
+    body>main {
+        padding: 1.5rem 0;
+    }
+
+    article.grid div {
+        padding: 1.5rem;
+    }
+}
+
+@media (min-width: 992px) {
+    body>main {
+        padding: 1.75rem 0;
+    }
+
+    article.grid div {
+        padding: 1.75rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    body>main {
+        padding: 2rem 0;
+    }
+
+    article.grid div {
+        padding: 2rem;
+    }
+}
+
+/* Nav */
+summary[role="link"].secondary:is([aria-current], :hover, :active, :focus) {
+    background-color: transparent;
+    color: var(--secondary-hover);
+}
+
+/* Hero Image */
+article div:nth-of-type(2) {
+    display: none;
+    background-color: #374956;
+    background-image: url("../img/bg.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+@media (min-width: 992px) {
+    .grid>div:nth-of-type(2) {
+        display: block;
+    }
+}
+
+/* Footer */
+body>footer {
+    padding: 1rem 0;
+}
+
+/* FX */
+
+#add-new-appointment-section,
+#search-appointment-section,
+#search-receipt-section,
+#search-prescription-section{
+    display: none;
+}
+
+p.error-msg{
+    color: red;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+td i{
+    cursor: pointer;
+}
+
+#modal-example article{
+    width: 50%;
+}
+
+input:not([type=checkbox],[type=radio],[type=range],[type=file])[type=search]{
+    background-image: none;
+}
+
+.alert {
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+}
+
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
