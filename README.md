@@ -140,3 +140,8 @@ SF6 GraphQL
 │ average response time: 6.1s [min: 5.2s, max: 9.8s, s.d.: 1661ms] │
 └──────────────────────────────────────────────────────────────────┘
 ```
+
+# Dental App Saas documentation
+
+- Install : `composer require symfony/asset` in order to use `{{ asset(...` in twig
+- Expose `.env` content in twig : `.../config\packages\twig.yaml`
